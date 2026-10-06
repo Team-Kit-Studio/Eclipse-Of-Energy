@@ -1,4 +1,5 @@
 extends TabBar
+## Настройки видео в игровом меню (полный экран, безрамочность, vsync).
 
 func _ready() -> void:
 	set_property()

@@ -10,8 +10,11 @@ script = ExtResource("1_u4rwp")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=420692453]
 region_rect = Rect2(0, 0, 1152, 256)
 
+[node name="Overlay" type="ColorRect" parent="." unique_id=375641998]
+mouse_filter = 2
+color = Color(0.18, 0.18, 0.18, 0.70980394)
+
 [node name="HandLabel" type="Label" parent="." unique_id=141059048]
-layout_direction = 2
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -22,6 +25,7 @@ offset_right = 3.0
 offset_bottom = 36.0
 grow_horizontal = 0
 grow_vertical = 2
+layout_direction = 2
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 26
 horizontal_alignment = 3

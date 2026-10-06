@@ -1,5 +1,7 @@
-class_name  PrivateDefaultSettingsData
+class_name PrivateDefaultSettingsData
+## Значения настроек по умолчанию (управление, видео, аудио) для SettingsLoader.
 
+## Словарь настроек по умолчанию, сгруппированный по секциям.
 const SETTINGS: Dictionary = {
 	"Control": {
 		"up": "W",

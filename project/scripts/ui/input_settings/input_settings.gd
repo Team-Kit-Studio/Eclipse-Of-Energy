@@ -1,4 +1,5 @@
 extends Control
+## Настройка привязок управления: переназначение действий и сохранение в конфиг.
 
 @onready var changable_list: VBoxContainer = $PanelContainer/MarginContainer/ScrollContainer/ChangableList
 # наш список кнопок

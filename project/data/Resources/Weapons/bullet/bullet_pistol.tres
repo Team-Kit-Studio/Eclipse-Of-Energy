@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://bts128eu2041g"]
+
+[ext_resource type="Script" uid="uid://73ote0fqjtwm" path="res://project/scripts/Weapons/Bullets/bullet_data.gd" id="1_s"]
+[ext_resource type="Texture2D" uid="uid://c00r4rb3lhgye" path="res://project/assets/sprites/Loots/Weapons/Bullets/Bullet_pistol.png" id="2_m527c"]
+
+[resource]
+script = ExtResource("1_s")
+bullet_id = "bullet_pistol"
+texture = ExtResource("2_m527c")
+damage = 15
+travel_range = 1000.0

@@ -57,6 +57,7 @@ script = ExtResource("1_xpfvl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1357068183]
 layer = 2
+visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1728741464]
 anchors_preset = 15

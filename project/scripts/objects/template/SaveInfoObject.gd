@@ -1,6 +1,8 @@
 extends RefCounted
 class_name SavesTemplate
+## Шаблоны структур данных сохранения (данные уровня/игрока и метаданные).
 
+## Шаблон «данные сохранения» (сцена уровня, игрок, враги, союзники, предметы).
 class DataTemp: 
 	var data: Dictionary = {
 		"data": {
@@ -12,6 +14,7 @@ class DataTemp:
 		}
 	}
 
+## Шаблон «метаданные сохранения» (имя, время изменения, текст миссий).
 class MetaDataTemp:
 	var data: Dictionary = { 
 		"metadata": {

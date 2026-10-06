@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://4r3te6db4f4i"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_yxucu"]
+[ext_resource type="Texture2D" uid="uid://crtqjc2fuhbya" path="res://project/assets/sprites/Loots/Keycards/keycard_black — копия.png" id="2_xnpyh"]
+
+[resource]
+script = ExtResource("1_yxucu")
+item_id = "keycard_black"
+name = "Ключ-карта(черный уровень)"
+texture = ExtResource("2_xnpyh")
+description = "Пропуск максимального уровня. Открывает любые двери."
+item_type = 4
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

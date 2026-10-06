@@ -12,6 +12,7 @@ enum state { MOVE, DAMAGE, ATTACK, DEATH }
 ## Стандартный скин (набор анимаций)
 @export var default_skin: String = "suit"
 
+
 # Ссылки на ноды
 @onready var audio_sfx1: AudioStreamPlayer2D = $AudioSFX
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -80,6 +81,7 @@ var animation_speed: float = 1.0
 
 func _ready() -> void:
 	Global.player = self
+	
 	var step_sound = preload("res://project/assets/sounds/MSE/zhelezo.mp3")
 	audio_sfx1.stream = step_sound
 	quest_tracker.visible = false
@@ -145,15 +147,21 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_quest_menu"):
 		quest_manager.show_quest_log()
 
+
+
 ## Обрабатывает движение в состоянии MOVE
 func Move_State(delta: float) -> void:
 	input_direction = Input.get_vector("left", "right", "up", "down")
 	if input_direction != Vector2.ZERO:
 		last_direction = get_clean_direction(input_direction)
-	var target_velocity = input_direction * speed
+	
+	var current_speed: float = speed
+		
+	var target_velocity = input_direction * current_speed
 	var accel_value = acceleration if input_direction != Vector2.ZERO else friction
 	velocity = velocity.move_toward(target_velocity, accel_value * delta)
 	update_animation_based_on_state()
+
 
 ## Обновляет анимацию в зависимости от направления и скорости
 func update_animation_based_on_state() -> void:
@@ -354,6 +362,7 @@ func handle_f_action() -> void:
 			current_target.call("start_dialog")
 			check_quest_objectives(current_target.npc_id, "talk_to")
 		return
+	
 
 ## Сохраняет данные игрока
 func data() -> Dictionary:
@@ -437,13 +446,3 @@ func _on_quest_updated(quest_id: String):
 func _on_objective_updated(quest_id: String, objective_id: String):
 	if selected_quest and selected_quest.quest_id == quest_id:
 		update_quest_tracker(selected_quest)
-
-## Блокирует/разблокирует управление игроком (используется катсценами)
-func set_controlled_by_cutscene(flag: bool):
-	is_being_controlled_by_cutscene = flag
-	can_move = not flag
-	if flag:
-		input_direction = Vector2.ZERO
-		velocity = Vector2.ZERO
-		update_animation_based_on_state()
-		_stop_footsteps()

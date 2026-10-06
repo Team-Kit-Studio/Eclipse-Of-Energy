@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dh8es5fooakud"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_s1q06"]
+[ext_resource type="Texture2D" uid="uid://b0of7ih2dps4t" path="res://project/assets/sprites/Loots/Weapons/Secondary/weapon_knife.png" id="2_u8m30"]
+
+[resource]
+script = ExtResource("1_s1q06")
+item_id = "weapon_knife"
+name = "Армейский нож"
+texture = ExtResource("2_u8m30")
+description = "Обычный армейский нож. Выдается всем солдатам Галактического правительства."
+width = 2
+item_type = 3
+weapon_type = 2
+sprite_offset = Vector2(18, -13.66)
+muzzle_offset = Vector2(61.75, 4.1)
+sprite_scale = Vector2(1.5, 1.5)
+damage = 40
+fire_rate = 0.4
+attack_mode = 1
+attack_range = 48.0
+is_equippable = true
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

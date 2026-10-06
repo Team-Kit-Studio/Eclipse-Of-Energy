@@ -1,10 +1,11 @@
 extends Node
+## Загрузка/сохранение пользовательских настроек (autoload SettingsLoader):
+## видео, аудио и привязки управления через ConfigFile.
 
-#const Main.SETTINGS_CONFIG_PATH: String = "user://user_config/settings.cfg"
-
+## Открытый конфиг настроек.
 var config: ConfigFile
 
-# ищет файл с данными, если нет - создает
+## При старте ищет файл настроек; если нет — создаёт с настройками по умолчанию.
 func _ready() -> void:
 	if not FileAccess.file_exists(Main.SETTINGS_CONFIG_PATH):
 		new_config_settings()
@@ -13,20 +14,22 @@ func _ready() -> void:
 		load_data()
 	
 
-# сохранение данных
+## Сохраняет конфиг настроек на диск.
 func save_data() -> void:
 	config.save(Main.SETTINGS_CONFIG_PATH)
 	
 
 
+## Создаёт новый конфиг с настройками по умолчанию.
 func new_config_settings() -> void:
 	config = ConfigUtil.set_config_dict(PrivateDefaultSettingsData.new().SETTINGS)
 
+## Загружает конфиг с диска и применяет настройки видео.
 func load_data() -> void:
 	config = ConfigUtil.load_config(Main.SETTINGS_CONFIG_PATH)
 	load_video_settings()
 
-# сохранение настроек управления
+## Сохраняет настройку управления (действие → событие ввода).
 func save_control_settings(action: String, event: InputEvent) -> void:
 	var event_str: String
 	if event is InputEventKey:
@@ -38,7 +41,7 @@ func save_control_settings(action: String, event: InputEvent) -> void:
 	config.set_value("Control", action, event_str)
 	save_data()
 
-# Загружает и преобразует сохраненные настройки управления в объекты InputEvent
+## Загружает и преобразует сохранённые привязки управления в объекты InputEvent.
 func get_key_binds() -> Dictionary[String, InputEvent]:
 	var binds_settings: Dictionary[String, InputEvent] = {}
 	for action: String  in config.get_section_keys("Control"): #запускаем цикл по всем ключам секции "Control"
@@ -58,7 +61,7 @@ func get_key_binds() -> Dictionary[String, InputEvent]:
 	
 	return binds_settings
 
-#загрузка настроек видео
+## Применяет сохранённые настройки видео (полный экран, безрамочный режим, vsync).
 func load_video_settings() -> void:
 	DisplayServer.window_set_mode(config.get_value("Video", "fullscreen"))
 
@@ -66,10 +69,11 @@ func load_video_settings() -> void:
 
 	DisplayServer.window_set_vsync_mode(config.get_value("Video", "vsync"))
 
-# сохранение настроек аудио
+## Сохраняет настройку аудио (ключ → значение).
 func save_audio_settings(key: String, value: float)-> void:
 	config.set_value("Audio", key, value)
 
+## Загружает настройки аудио из секции «Аудио».
 func load_audio_settings() -> Dictionary[String, float]:
 	var audio_settings: Dictionary[String, float] = {}
 	for key in config.get_section_keys("Аудио"):

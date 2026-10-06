@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b61qca267g2fi"]
+
+[ext_resource type="Script" uid="uid://drmyl0mm1east" path="res://project/scripts/Weapons/Bullets/bullet.gd" id="1_h8qb3"]
+
+[node name="BulletBase" type="Node2D" unique_id=1781520348]
+z_index = 2
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_h8qb3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1152543234]

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://hg4qsje66hnt"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_wy84t"]
+[ext_resource type="Texture2D" uid="uid://dn3ejmk85vqvj" path="res://project/assets/sprites/Loots/Weapons/Primary/Weapon_Rifle.png" id="2_r68ke"]
+[ext_resource type="Resource" uid="uid://ca8hrvkr065ku" path="res://project/data/Resources/Weapons/bullet/bullet_sniper.tres" id="3_snpr"]
+
+[resource]
+script = ExtResource("1_wy84t")
+item_id = "weapon_sniper_rifle"
+name = "Снайперская винтовка \"Призрак\""
+texture = ExtResource("2_r68ke")
+description = "Высокоточная снайперская система с мощным энергетическим зарядом. Требует выдержки и терпения — каждый выстрел должен быть на вес золота. При длительном удержании позиции точность возрастает до максимума, позволяя наносить критический урон даже самым защищённым целям. Не для тех, кто любит спешку."
+width = 3
+item_type = 3
+weapon_type = 1
+bullet = ExtResource("3_snpr")
+sprite_offset = Vector2(-12.44, -16.86)
+muzzle_offset = Vector2(83.95, -1.815)
+sprite_scale = Vector2(1.5, 1.5)
+ammo_max = 5
+damage = 100
+fire_rate = 1.2
+spread = 1.0
+infinite_ammo = true
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

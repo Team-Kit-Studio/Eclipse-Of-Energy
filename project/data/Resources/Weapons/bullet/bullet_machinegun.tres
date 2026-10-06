@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://caxvpjmlbeyjt"]
+
+[ext_resource type="Script" uid="uid://73ote0fqjtwm" path="res://project/scripts/Weapons/Bullets/bullet_data.gd" id="1_s"]
+[ext_resource type="Texture2D" uid="uid://cfbeqpf63ejoi" path="res://project/assets/sprites/Loots/Weapons/Bullets/Bullet_MachineGun.png" id="2_t"]
+
+[resource]
+script = ExtResource("1_s")
+bullet_id = "bullet_machinegun"
+texture = ExtResource("2_t")
+bullet_speed = 600.0
+damage = 15
+travel_range = 2000.0

@@ -1,4 +1,5 @@
 extends Control
+## Меню сохранений: список слотов, создание/загрузка/удаление, обновление списка.
 
 signal update_current_node(node: Node)
 signal create_new_save(_name: String)

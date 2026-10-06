@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="TacticalData" format=3]
+
+[ext_resource type="Script" path="res://project/scripts/Weapons/Tactical/tactical_data.gd" id="1_td"]
+
+[resource]
+script = ExtResource("1_td")
+tactical_type = 0
+projectile_scene_path = "res://project/scenes/Weapons/Tactical/grenade.tscn"
+explosion_scene_path = "res://project/scenes/Weapons/Tactical/explosion.tscn"
+throw_speed = 640.0
+throw_distance = 300.0
+roll_speed = 300.0
+roll_friction = 320.0
+fuse_time = 2.5
+explosion_radius = 128.0
+knockback_force = 420.0
+knockback_duration = 0.25

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cep0r173ugtdd"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_konc3"]
+[ext_resource type="Texture2D" uid="uid://bfjg30jbwni8o" path="res://project/assets/sprites/Loots/Keycards/keycard_blue — копия.png" id="2_wsesg"]
+
+[resource]
+script = ExtResource("1_konc3")
+item_id = "keycard_blue"
+name = "ключ-карта(синий уровень)"
+texture = ExtResource("2_wsesg")
+description = "Пропуск среднего уровня. Открывает двери с синим замком"
+item_type = 4
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

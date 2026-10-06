@@ -1,4 +1,5 @@
 extends Control
+## Диалог подтверждения действия над сохранением (перезапись/удаление/загрузка).
 
 signal confirm_apply(_mode: String)
 

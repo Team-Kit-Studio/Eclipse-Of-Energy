@@ -1,4 +1,5 @@
 extends Node2D
+## Главное меню: запуск игры, загрузка сохранения, настройки, выход.
 
 
 @onready var menu: Control = $Main_Menu
@@ -18,6 +19,7 @@ func _ready() -> void:
 	video.visible = false
 	audio.visible = false
 	controls.visible = false
+	Cursor.sprite.show()
 	audiogame.play()
 
 

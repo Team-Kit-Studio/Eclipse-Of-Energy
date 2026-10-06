@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cv8q1gfg2ivru"]
+
+[ext_resource type="Script" uid="uid://bshc8cx2p8owc" path="res://project/scenes/characters/entity.gd" id="1_5vmjl"]
+[ext_resource type="PackedScene" uid="uid://8j0t3isykc67" path="res://project/scenes/ui/HealthBar/health_component.tscn" id="2_ugplg"]
+[ext_resource type="Script" uid="uid://bsl7j8q0ox8ei" path="res://project/scripts/systems/Weapon/weapon_controller.gd" id="3_g2hn0"]
+
+[node name="Player_Sample" type="CharacterBody2D" unique_id=1256966732]
+script = ExtResource("1_5vmjl")
+
+[node name="visuals" type="Node2D" parent="." unique_id=572270938]
+
+[node name="Shadow" type="AnimatedSprite2D" parent="visuals" unique_id=1867444742]
+modulate = Color(0.011764706, 0.011764706, 0.011764706, 0.49803922)
+position = Vector2(-7, -5)
+
+[node name="Sprites" type="AnimatedSprite2D" parent="visuals" unique_id=1197093314]
+
+[node name="Anim" type="AnimationPlayer" parent="visuals" unique_id=730463753]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=551274179]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=823630331]
+
+[node name="AudioSFX" type="AudioStreamPlayer2D" parent="." unique_id=1700016659]
+
+[node name="HealthComponent" parent="." unique_id=1786533598 instance=ExtResource("2_ugplg")]
+
+[node name="WeaponController" type="Node2D" parent="." unique_id=1889636597]
+script = ExtResource("3_g2hn0")
+
+[connection signal="on_unit_damaged" from="HealthComponent" to="." method="_on_health_component_on_unit_damaged"]
+[connection signal="on_unit_dead" from="HealthComponent" to="." method="_on_health_component_on_unit_dead"]
+[connection signal="on_unit_healed" from="HealthComponent" to="." method="_on_health_component_on_unit_healed"]

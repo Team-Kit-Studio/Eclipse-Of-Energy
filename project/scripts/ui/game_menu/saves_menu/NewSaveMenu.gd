@@ -1,4 +1,5 @@
 extends Control
+## Окно создания нового сохранения: ввод имени и выбор источника данных.
 
 @onready var line_edit: LineEdit = $Panel/HBoxContainer/VBoxContainer/MarginContainer/LineEdit
 

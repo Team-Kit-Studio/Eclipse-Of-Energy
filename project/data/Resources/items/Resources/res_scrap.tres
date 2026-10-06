@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bj0t7gkwgw8ba"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_vj7wx"]
+[ext_resource type="Texture2D" uid="uid://djvvp1asprms3" path="res://project/assets/sprites/Loots/Resource/res_scrap.png" id="2_cdkrb"]
+
+[resource]
+script = ExtResource("1_vj7wx")
+item_id = "res_scrap"
+name = "кучка металлолома"
+texture = ExtResource("2_cdkrb")
+description = "Куча металлолома. Можно использовать для крафта и ремонта."
+max_stack_size = 64
+item_type = 1
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

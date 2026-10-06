@@ -1,14 +1,17 @@
 @tool
 extends Area2D
 class_name DroppedItem
+## Выпавший в мире предмет: показывает иконку и количество, подсвечивает подсказку F.
 
 ## Данные предмета (ItemData).
 @export var data: ItemData
 
+## Спрайт предмета, метка количества и подсказка взаимодействия.
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var amount_label: Label = $Amount
 @onready var hint_f: CanvasItem = $HintF
 
+## Инициализирует визуал; в редакторе сразу показывает текстуру предмета.
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		sprite.texture = data.texture
@@ -17,6 +20,7 @@ func _ready() -> void:
 		hint_f.visible = false
 	update_visual()
 
+## В редакторе обновляет текстуру предмета при её изменении.
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		sprite.texture = data.texture

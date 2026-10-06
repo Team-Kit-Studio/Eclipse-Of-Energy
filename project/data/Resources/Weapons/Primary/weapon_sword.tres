@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" format=3]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_sw"]
+[ext_resource type="Texture2D" path="res://assets/generated/weapon_plasma_sword.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_sw")
+item_id = "weapon_sword"
+name = "Плазменный меч"
+texture = ExtResource("2_tex")
+description = "Ближний бой. Широкий замах плазменным клинком — эффективен в упор."
+width = 2
+item_type = 3
+weapon_type = 1
+sprite_offset = Vector2(18, -14)
+sprite_scale = Vector2(1, 1)
+damage = 55
+fire_rate = 0.6
+attack_mode = 1
+attack_range = 64.0
+is_equippable = true
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

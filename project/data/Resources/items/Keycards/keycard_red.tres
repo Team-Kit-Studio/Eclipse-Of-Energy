@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ddvya2wqfgtmp"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_k3afx"]
+[ext_resource type="Texture2D" uid="uid://bx7ettnmxonwn" path="res://project/assets/sprites/Loots/Keycards/Keycards_Red — копия.png" id="2_s0diu"]
+
+[resource]
+script = ExtResource("1_k3afx")
+item_id = "keycard_red"
+name = "Ключ-карта(красный уровень)"
+texture = ExtResource("2_s0diu")
+description = "Пропуск высокого уровня. Открывает двери с красным замком."
+item_type = 4
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

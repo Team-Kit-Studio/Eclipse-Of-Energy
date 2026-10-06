@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ch6xmttbacjeq"]
+
+[ext_resource type="Resource" uid="uid://bts128eu2041g" path="res://project/data/Resources/Weapons/bullet/bullet_pistol.tres" id="1_0g68g"]
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_kbmj8"]
+[ext_resource type="Texture2D" uid="uid://cwe6frn1bfng1" path="res://project/assets/sprites/Loots/Weapons/laser_gun.png" id="2_0g68g"]
+
+[resource]
+script = ExtResource("1_kbmj8")
+item_id = "weapon_blaster_havy"
+name = "Бластерная винтовка E-11"
+texture = ExtResource("2_0g68g")
+description = "Стандартное-issue оружие штурмовиков. Высокая скорострельность, средний урон."
+width = 2
+item_type = 3
+weapon_type = 1
+bullet = ExtResource("1_0g68g")
+sprite_offset = Vector2(-2.49, -13.54)
+muzzle_offset = Vector2(92.66, -2.405)
+sprite_scale = Vector2(1.5, 1.5)
+ammo_type = "ammo_plasma_cell"
+ammo_current = 30
+damage = 25
+spread = 7.0
+is_equippable = true
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

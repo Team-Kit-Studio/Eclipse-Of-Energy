@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://chu5jjxfvwy50"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_u42ac"]
+[ext_resource type="Texture2D" uid="uid://bvnnl66kx1oja" path="res://project/assets/sprites/Loots/Weapons/Primary/Weapon_Shotgun.png" id="2_ko5xr"]
+[ext_resource type="Resource" uid="uid://ctwt3rembdd2i" path="res://project/data/Resources/Weapons/bullet/bullet_shotgun.tres" id="3_shgn"]
+
+[resource]
+script = ExtResource("1_u42ac")
+item_id = "weapon_plasma_shotgun"
+name = "Плазменный дробовик"
+texture = ExtResource("2_ko5xr")
+description = "Ближний бой — его стихия. Шесть мощных плазменных зарядов одновременно превращают любого противника в груду пепла. Обладает эффектом отталкивания, что даёт тактическое преимущество в тесных помещениях. Тяжёлый, надёжный, беспощадный. Когда враги окружают — \"Молот\" решает всё."
+width = 2
+item_type = 3
+weapon_type = 1
+bullet = ExtResource("3_shgn")
+sprite_offset = Vector2(-12.44, -18.6)
+muzzle_offset = Vector2(65.235, -2.205)
+sprite_scale = Vector2(1.5, 1.5)
+ammo_type = "ammo_energy_pack"
+ammo_current = 8
+ammo_max = 8
+damage = 60
+fire_rate = 0.4
+spread = 14.0
+projectiles = 6
+is_equippable = true
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

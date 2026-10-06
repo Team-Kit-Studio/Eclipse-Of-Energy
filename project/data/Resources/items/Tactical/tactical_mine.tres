@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TacticalData" format=3]
+
+[ext_resource type="Script" path="res://project/scripts/Weapons/Tactical/tactical_data.gd" id="1_td"]
+
+[resource]
+script = ExtResource("1_td")
+tactical_type = 1
+projectile_scene_path = "res://project/scenes/Weapons/Tactical/mine.tscn"
+explosion_scene_path = "res://project/scenes/Weapons/Tactical/explosion.tscn"
+arm_time = 3.0
+place_offset = 26.0
+explosion_radius = 96.0
+knockback_force = 320.0
+knockback_duration = 0.2

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c2ciut0goen02"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_cbci0"]
+[ext_resource type="Texture2D" uid="uid://bw30n1hhu8gcf" path="res://project/assets/sprites/Loots/Tactical/mine.png" id="2_jwdvc"]
+[ext_resource type="Resource" path="res://project/data/Resources/items/Tactical/tactical_mine.tres" id="3_tac"]
+
+[resource]
+script = ExtResource("1_cbci0")
+item_id = "item_mine"
+name = "Мина-растяжка"
+texture = ExtResource("2_jwdvc")
+description = "Устанавливается на поверхность. Взрывается при приближении врага."
+max_stack_size = 3
+item_type = 2
+weapon_type = 3
+damage = 75
+tactical = ExtResource("3_tac")
+is_usable = true
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

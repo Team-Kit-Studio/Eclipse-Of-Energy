@@ -1,10 +1,16 @@
 extends Button
 class_name DropZone
+## Зона сброса: выбросить предмет из руки. ЛКМ — весь стак, ПКМ — по одной штуке.
 
+## Сцена выпавшего предмета и параметры точки сброса.
 @export var dropped_item_scene: PackedScene
 @export var drop_offset: Vector2 = Vector2(0, 16)
 @export var merge_radius: float = 32.0
 
+## Менеджер перетаскивания предметов.
+@onready var InventoryManager: InventoryManage = InventoryManage
+
+## При старте скрывает зону и подключает обработчик ЛКМ.
 func _ready() -> void:
 	mouse_filter = MOUSE_FILTER_STOP
 	visible = false
@@ -12,17 +18,19 @@ func _ready() -> void:
 	# ✅ ЛКМ сигнал (подключишь в редакторе или оставь)
 	pressed.connect(_on_left_click)
 
+## Показывает зону сброса.
 func show_zone() -> void:
 	visible = true
 
+## Прячет зону сброса.
 func hide_zone() -> void:
 	visible = false
 
-# ✅ ЛКМ — весь стак
+## ЛКМ — выбрасывает весь стак.
 func _on_left_click() -> void:
 	_drop_from_hand(false)
 
-# ✅ ПКМ — по 1 штуке
+## ПКМ — выбрасывает по одной штуке из стака.
 func _unhandled_input(event: InputEvent) -> void:
 	if not visible:
 		return
@@ -30,44 +38,44 @@ func _unhandled_input(event: InputEvent) -> void:
 		_drop_from_hand(true)
 		get_viewport().set_input_as_handled()
 
+## Выбрасывает предмет из руки: весь стак или одну штуку.
 func _drop_from_hand(one_by_one: bool) -> void:
 	var held_visual = get_tree().get_first_node_in_group("held_item")
-	if held_visual == null:
-		return
-	if dropped_item_scene == null:
-		return
-
+	if held_visual == null: return
+	if dropped_item_scene == null: return
+	
 	var item_data: ItemData = held_visual.get("data")
-	if item_data == null:
-		return
-
-	# Куда бросаем: рядом с игроком
+	if item_data == null: return
+	
 	var player := get_tree().root.find_child("Player", true, false)
 	var drop_pos := Vector2.ZERO
-	if player and player is Node2D:
+	if player and player is Node2D: 
 		drop_pos = (player as Node2D).global_position + drop_offset
-
-	# ✅ ПКМ: по 1 штуке
+	
 	if one_by_one and item_data.stackable and item_data.amount > 0:
 		var single_data: ItemData = item_data.duplicate()
 		single_data.amount = 1
-
 		item_data.amount -= 1
-		if held_visual.has_method("update_visual"):
+		if held_visual.has_method("update_visual"): 
 			held_visual.update_visual()
-
 		_spawn_or_merge(single_data, drop_pos)
-
 		if item_data.amount <= 0:
+			# ВАЖНО: Сначала очищаем менеджер, потом уничтожаем визуал
+			if InventoryManager.has_held():
+				InventoryManager.clear()
 			held_visual.queue_free()
 			hide_zone()
 		return
-
-	# ✅ ЛКМ: весь стак
+	
 	_spawn_or_merge(item_data, drop_pos)
+	
+	# ВАЖНО: Сначала очищаем менеджер, потом уничтожаем визуал
+	if InventoryManager.has_held():
+		InventoryManager.clear()
 	held_visual.queue_free()
 	hide_zone()
 
+## Создаёт новый выпавший предмет или доливает к такому же рядом (стак).
 func _spawn_or_merge(data_to_drop: ItemData, pos: Vector2) -> void:
 	# 1) Ищем такой же предмет рядом для стека
 	var target = _find_nearby_stack(data_to_drop, pos)
@@ -85,6 +93,7 @@ func _spawn_or_merge(data_to_drop: ItemData, pos: Vector2) -> void:
 		(dropped as Node2D).global_position = pos
 	get_tree().current_scene.add_child(dropped)
 
+## Ищет ближайший выпавший предмет того же типа в радиусе слияния.
 func _find_nearby_stack(data_to_drop: ItemData, pos: Vector2) -> Node:
 	if data_to_drop == null or not data_to_drop.stackable:
 		return null

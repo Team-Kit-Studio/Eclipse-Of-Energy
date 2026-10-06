@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://1b5l10r10a2a"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_0v8yd"]
+[ext_resource type="Texture2D" uid="uid://ds32kg001x8lw" path="res://project/assets/sprites/Loots/Keycards/Keycard_white — копия.png" id="2_a31c1"]
+
+[resource]
+script = ExtResource("1_0v8yd")
+item_id = "keycard_white"
+name = "Ключ-карта (Белый доступ)"
+texture = ExtResource("2_a31c1")
+description = "Пропуск начального уровня. Открывает двери с белым замком."
+item_type = 4
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

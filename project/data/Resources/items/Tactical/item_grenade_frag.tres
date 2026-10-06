@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cwvolbalboue7"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_q5gia"]
+[ext_resource type="Texture2D" uid="uid://d13b680kpp3qy" path="res://project/assets/sprites/Loots/Tactical/granade_frag.png" id="2_odawf"]
+[ext_resource type="Resource" path="res://project/data/Resources/items/Tactical/tactical_grenade_frag.tres" id="3_tac"]
+
+[resource]
+script = ExtResource("1_q5gia")
+item_id = "item_grenade_frag"
+name = "Осколочная граната"
+texture = ExtResource("2_odawf")
+description = "Наносит высокий урон по площади. Идеально против групп врагов."
+max_stack_size = 3
+item_type = 2
+weapon_type = 3
+sprite_scale = Vector2(0.75, 0.75)
+damage = 100
+tactical = ExtResource("3_tac")
+is_usable = true
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

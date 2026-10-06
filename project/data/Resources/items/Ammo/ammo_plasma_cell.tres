@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://btrs3f34c8m6v"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_v1a3l"]
+[ext_resource type="Texture2D" uid="uid://cis22gicyc3xq" path="res://project/assets/sprites/Loots/Weapons/Ammo/Ammo.png" id="2_12tcn"]
+
+[resource]
+script = ExtResource("1_v1a3l")
+item_id = "ammo_plasma_cell"
+name = "Плазменный заряд"
+texture = ExtResource("2_12tcn")
+description = "Стандартный боеприпас для бластерных винтовок. Содержит сжатую плазму в магнитном поле."
+max_stack_size = 50
+item_type = 1
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

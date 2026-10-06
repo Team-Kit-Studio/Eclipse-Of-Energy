@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cbu1w7cxowiwa"]
+
+[ext_resource type="PackedScene" uid="uid://011hy6olhx1j" path="res://project/scenes/Weapons/Range/weapon_range_base.tscn" id="1_w"]
+[ext_resource type="Resource" uid="uid://ch6xmttbacjeq" path="res://project/data/Resources/Weapons/Primary/weapon_blaster_rifle.tres" id="2_rifle"]
+[ext_resource type="Resource" uid="uid://chu5jjxfvwy50" path="res://project/data/Resources/Weapons/Primary/weapon_plasma_shothun.tres" id="3_shot"]
+[ext_resource type="Resource" uid="uid://bwqevymky2tm6" path="res://project/data/Resources/Weapons/Primary/weapon_blaster_machinGun.tres" id="4_pist"]
+[ext_resource type="Resource" uid="uid://dh8es5fooakud" path="res://project/data/Resources/Weapons/Secondary/weapon_knife.tres" id="5_knife"]
+[ext_resource type="Resource" uid="uid://hg4qsje66hnt" path="res://project/data/Resources/Weapons/Primary/weapon_sniper_rifle.tres" id="6_61a2b"]
+[ext_resource type="Resource" uid="uid://xpby3b28xcv4" path="res://project/data/Resources/Weapons/Secondary/weapon_bluster_pistol.tres" id="7_s0bwj"]
+
+[node name="WeaponGallery" type="Node2D" unique_id=1127380679]
+
+[node name="Rifle" parent="." unique_id=424964430 instance=ExtResource("1_w")]
+position = Vector2(-343, -1)
+data = ExtResource("2_rifle")
+
+[node name="RifleLabel" type="Label" parent="." unique_id=1489668921]
+offset_left = -320.0
+offset_top = 60.0
+offset_right = -160.0
+offset_bottom = 90.0
+text = "Винтовка E-11"
+
+[node name="Shotgun" parent="." unique_id=777269296 instance=ExtResource("1_w")]
+position = Vector2(-344, -59)
+data = ExtResource("3_shot")
+
+[node name="ShotgunLabel" type="Label" parent="." unique_id=1874786903]
+offset_left = -160.0
+offset_top = 60.0
+offset_bottom = 90.0
+text = "Дробовик"
+
+[node name="Pistol" parent="." unique_id=478852503 instance=ExtResource("1_w")]
+position = Vector2(-181, -45)
+data = ExtResource("4_pist")
+
+[node name="PistolLabel" type="Label" parent="." unique_id=1255794519]
+offset_top = 60.0
+offset_right = 160.0
+offset_bottom = 90.0
+text = "Пистолет «Фаланга»"
+
+[node name="Knife" parent="." unique_id=1493262754 instance=ExtResource("1_w")]
+position = Vector2(-46, -44)
+data = ExtResource("5_knife")
+
+[node name="KnifeLabel" type="Label" parent="." unique_id=2034485976]
+offset_left = 160.0
+offset_top = 60.0
+offset_right = 320.0
+offset_bottom = 90.0
+text = "Армейский нож"
+
+[node name="WeaponRangeBase" parent="." unique_id=1704483511 instance=ExtResource("1_w")]
+position = Vector2(-18, 2)
+data = ExtResource("6_61a2b")
+
+[node name="WeaponRangeBase2" parent="." unique_id=333557457 instance=ExtResource("1_w")]
+position = Vector2(-179, 12)
+data = ExtResource("7_s0bwj")

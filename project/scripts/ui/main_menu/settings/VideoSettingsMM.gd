@@ -1,4 +1,5 @@
 extends Control
+## Настройки видео в главном меню (полный экран, безрамочность, vsync).
 
 func _ready() -> void:
 	set_property()

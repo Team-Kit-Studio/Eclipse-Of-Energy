@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://1mojntn0s0oc"]
+
+[ext_resource type="Script" uid="uid://ixfbenldwsey" path="res://project/scripts/Weapons/Tactical/grenade.gd" id="1_gr"]
+[ext_resource type="Texture2D" uid="uid://d13b680kpp3qy" path="res://project/assets/sprites/Loots/Tactical/granade_frag.png" id="2_tex"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1"]
+friction = 0.7
+bounce = 0.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 4.0
+
+[node name="Grenade" type="RigidBody2D" unique_id=1251949822]
+z_index = 1
+collision_layer = 0
+physics_material_override = SubResource("PhysicsMaterial_1")
+gravity_scale = 0.0
+continuous_cd = 2
+script = ExtResource("1_gr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=278396755]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=862976735]
+shape = SubResource("CircleShape2D_1")

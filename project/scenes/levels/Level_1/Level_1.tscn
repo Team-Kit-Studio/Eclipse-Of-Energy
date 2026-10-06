@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cnof62cmht83" path="res://project/assets/sprites/tiles/tilemap_spaceship/Floor/Floor_Corridor3.png" id="4_oyocx"]
 [ext_resource type="Texture2D" uid="uid://bmq5k85y4hy26" path="res://project/assets/sprites/tiles/tilemap_spaceship/Floor/bed_cabin.png" id="5_64jha"]
 [ext_resource type="Script" uid="uid://cwesv582fjfs" path="res://project/scripts/systems/Cut-Scenes/actor_follower.gd" id="5_gu4hv"]
-[ext_resource type="PackedScene" uid="uid://dn8amxut4hceo" path="res://project/scenes/characters/player/player.tscn" id="6_vcvnr"]
 [ext_resource type="Texture2D" uid="uid://uphoiujsjqi2" path="res://project/assets/sprites/tiles/tilemap_spaceship/Floor/Floor_corridor.png" id="7_f7cpc"]
 [ext_resource type="Texture2D" uid="uid://vevwcw0bunkp" path="res://project/assets/sprites/tiles/tilemap_spaceship/Object/Стол.png" id="8_uq5yu"]
 [ext_resource type="Texture2D" uid="uid://dcx5whwm2u88" path="res://project/assets/sprites/tiles/tilemap_spaceship/Object/chair.png" id="9_lpjld"]
@@ -16,27 +15,33 @@
 [ext_resource type="PackedScene" uid="uid://cpnvcqb45r1fu" path="res://project/scenes/objects/interactive/safe_terminal.tscn" id="10_563p0"]
 [ext_resource type="PackedScene" uid="uid://johug8s1yskq" path="res://project/scenes/objects/interactive/closet.tscn" id="11_hhtvi"]
 [ext_resource type="PackedScene" uid="uid://rc1cyn3sceyf" path="res://project/scenes/characters/Entity/NPC.tscn" id="11_lto12"]
+[ext_resource type="Resource" uid="uid://cwvolbalboue7" path="res://project/data/Resources/items/Tactical/item_grenade_frag.tres" id="13_5x84b"]
 [ext_resource type="PackedScene" uid="uid://cgrmdy8v57ng7" path="res://project/scenes/objects/interactive/chest.tscn" id="14_qjhnp"]
-[ext_resource type="Texture2D" uid="uid://bh0n1lgkm17o8" path="res://project/assets/sprites/Loots/Battery.png" id="14_qujv1"]
 [ext_resource type="Material" uid="uid://bfsx266cs5k1w" path="res://project/assets/theme/Shadow_Shader.tres" id="15_0udst"]
 [ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="15_f7cpc"]
 [ext_resource type="Texture2D" uid="uid://7d6boju35p6f" path="res://project/assets/sprites/Loots/KeyCardBlack.png" id="16_lto12"]
 [ext_resource type="PackedScene" uid="uid://dthswwr0380vt" path="res://project/scenes/objects/Table.tscn" id="16_vcvnr"]
-[ext_resource type="PackedScene" uid="uid://c7q8p6a0l30lf" path="res://project/scenes/ui/game_menu/game_menu.tscn" id="16_w2bar"]
-[ext_resource type="Resource" uid="uid://dy2jadhtctilo" path="res://project/data/Items_Samples/Key_card_Grey.tres" id="21_dxl77"]
-[ext_resource type="PackedScene" uid="uid://bw1dsjxiijb6f" path="res://project/scenes/ui/inventory/inventory.tscn" id="22_20t25"]
-[ext_resource type="Texture2D" uid="uid://cwe6frn1bfng1" path="res://project/assets/sprites/Weapons/laser_gun.png" id="22_sfn6e"]
+[ext_resource type="Resource" uid="uid://bwqevymky2tm6" path="res://project/data/Resources/Weapons/Primary/weapon_blaster_machinGun.tres" id="18_5x84b"]
+[ext_resource type="Resource" uid="uid://chu5jjxfvwy50" path="res://project/data/Resources/Weapons/Primary/weapon_plasma_shothun.tres" id="19_qotnl"]
+[ext_resource type="Resource" uid="uid://ch6xmttbacjeq" path="res://project/data/Resources/Weapons/Primary/weapon_blaster_rifle.tres" id="20_mt5x5"]
+[ext_resource type="Texture2D" uid="uid://djvvp1asprms3" path="res://project/assets/sprites/Loots/Resource/res_scrap.png" id="21_61cnm"]
+[ext_resource type="Resource" uid="uid://hg4qsje66hnt" path="res://project/data/Resources/Weapons/Primary/weapon_sniper_rifle.tres" id="21_s68gf"]
+[ext_resource type="Resource" uid="uid://xpby3b28xcv4" path="res://project/data/Resources/Weapons/Secondary/weapon_bluster_pistol.tres" id="22_wss3m"]
 [ext_resource type="PackedScene" uid="uid://chbaujlj47kwf" path="res://project/scenes/objects/interactive/door_inter.tscn" id="23_dxl77"]
 [ext_resource type="Script" uid="uid://c1ooabv6ofu7" path="res://project/scripts/systems/Quest/Components/Quest.gd" id="24_61cnm"]
-[ext_resource type="Texture2D" uid="uid://ckium8f85irdp" path="res://project/assets/sprites/Weapons/gun.png" id="25_qujv1"]
+[ext_resource type="Resource" uid="uid://4r3te6db4f4i" path="res://project/data/Resources/items/Keycards/keycard_black.tres" id="24_l1vrp"]
 [ext_resource type="Script" uid="uid://dfae136l0alhw" path="res://project/scripts/systems/Quest/Components/Objectives.gd" id="25_sfn6e"]
 [ext_resource type="Script" uid="uid://ccl3wemqkkmiv" path="res://project/scripts/systems/Quest/Components/Rewards.gd" id="26_c4afl"]
-[ext_resource type="Script" uid="uid://dy1lo6wbqirsy" path="res://project/scripts/ui/inventory/Components/drop_zone.gd" id="27_ql43b"]
-[ext_resource type="Script" uid="uid://brnwxmaaue1ge" path="res://project/scripts/core/inventory_manager.gd" id="27_s4qvm"]
 [ext_resource type="PackedScene" uid="uid://cxhqernnxs7tg" path="res://project/scenes/objects/interactive/drop_item.tscn" id="28_s4qvm"]
+[ext_resource type="PackedScene" uid="uid://v206ua71v5si" path="res://project/scenes/characters/player/player_new.tscn" id="28_ylqv8"]
 [ext_resource type="Texture2D" uid="uid://csasilrv3qqh6" path="res://project/assets/sprites/tiles/tilemap_spaceship/Kut-Scene/Sprite1.png" id="32_dqoqb"]
 [ext_resource type="Texture2D" uid="uid://dv31fenfkyj71" path="res://project/assets/sprites/tiles/tilemap_spaceship/Kut-Scene/Sprite2.png" id="33_l1vrp"]
-[ext_resource type="Script" uid="uid://bjh8qsndlo5um" path="res://project/scripts/systems/Cut-Scenes/cutscene_manager.gd" id="35_5x84b"]
+[ext_resource type="Resource" uid="uid://c3b8b066umwan" path="res://project/data/Resources/items/Consumable/item_medkit.tres" id="40_med"]
+[ext_resource type="Resource" uid="uid://pxfp853pnmig" path="res://project/data/Resources/items/Consumable/item_bandage.tres" id="41_ban"]
+[ext_resource type="PackedScene" uid="uid://biea0trx7i1mg" path="res://project/scenes/characters/Entity/kriptozavr.tscn" id="42_kript"]
+[ext_resource type="Resource" uid="uid://c2ciut0goen02" path="res://project/data/Resources/items/Tactical/item_mine.tres" id="42_mine"]
+[ext_resource type="Resource" path="res://project/data/Resources/Weapons/Primary/weapon_sword.tres" id="43_sword"]
+[ext_resource type="Resource" uid="uid://dh8es5fooakud" path="res://project/data/Resources/Weapons/Secondary/weapon_knife.tres" id="44_knife"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lpjld"]
 polygon = PackedVector2Array(-6.96299, -8, 8, -8, 8, 8, -8, 8, -8, -6.99164, -7.03177, -6.93879)
@@ -548,38 +553,21 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/9 = SubResource("TileSetAtlasSource_oyocx")
 sources/1 = SubResource("TileSetAtlasSource_cba48")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ftw8g"]
-atlas = ExtResource("25_qujv1")
-region = Rect2(30, 61, 59, 41)
-
-[sub_resource type="Resource" id="Resource_sfn6e"]
-script = ExtResource("15_f7cpc")
-name = "Glock-18"
-texture = SubResource("AtlasTexture_ftw8g")
-description = "Пистолет ближнего действия"
-width = 2
-metadata/_custom_type_script = "uid://ipa0bxfn4i43"
-
-[sub_resource type="Resource" id="Resource_c4afl"]
-script = ExtResource("15_f7cpc")
-name = "Энергоячейка"
-texture = ExtResource("14_qujv1")
-description = "Батарейный блок для энергооружия."
-amount = 6
-max_stack_size = 15
-metadata/_custom_type_script = "uid://ipa0bxfn4i43"
-
 [sub_resource type="Resource" id="Resource_0udst"]
 script = ExtResource("15_f7cpc")
 name = "Черная Ключ-Карта"
 texture = ExtResource("16_lto12")
 description = "Ключ-карта первого уровня"
 
-[sub_resource type="Resource" id="Resource_dxl77"]
+[sub_resource type="Resource" id="Resource_sfn6e"]
 script = ExtResource("15_f7cpc")
-name = "Laser Gun"
-texture = ExtResource("22_sfn6e")
-width = 2
+item_id = "res_scrap"
+name = "кучка металлолома"
+texture = ExtResource("21_61cnm")
+description = "Куча металлолома. Можно использовать для крафта и ремонта."
+amount = 8
+max_stack_size = 65
+item_type = 1
 metadata/_custom_type_script = "uid://ipa0bxfn4i43"
 
 [sub_resource type="Resource" id="Resource_qotnl"]
@@ -662,7 +650,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ylqv8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -682,25 +670,13 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../1_floor/Entity/Player:visible")
+tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 4.133333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(4),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -708,18 +684,18 @@ tracks/2/keys = {
 "method": &"start_cutscene"
 }]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../CutScene_Manager")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../1_floor/Entity/Player")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
-"method": &"show_bars"
+"args": [true],
+"method": &"set_is_controlled"
 }]
 }
 
@@ -737,18 +713,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../1_floor/Entity/Player:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l1vrp"]
 _data = {
@@ -761,24 +725,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1857, 1679, 0, 0, 0, 0, 1857, 1728)
 }
 point_count = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcvnr"]
-bg_color = Color(0.941555, 3.9948522e-06, 1.347661e-06, 0.4627451)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7cpc"]
-bg_color = Color(0.654902, 0, 0, 0.83137256)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lto12"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.9997694, 0.14730054, 0.10501569, 0.7019608)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
 
 [node name="Level 1" type="Node2D" unique_id=1622230619]
 y_sort_enabled = true
@@ -816,62 +762,78 @@ position = Vector2(1762, 1680)
 
 [node name="Chest" parent="1_floor/Rooms/Spawn" unique_id=532434632 instance=ExtResource("14_qjhnp")]
 position = Vector2(-17, 103)
+collision_layer = 8
+collision_mask = 2
+storage = Array[ExtResource("15_f7cpc")]([ExtResource("13_5x84b"), ExtResource("42_mine"), ExtResource("40_med"), ExtResource("41_ban")])
 
 [node name="Chest2" parent="1_floor/Rooms/Spawn" unique_id=784172812 instance=ExtResource("14_qjhnp")]
 position = Vector2(91, 102)
-storage = Array[ExtResource("15_f7cpc")]([SubResource("Resource_sfn6e"), SubResource("Resource_c4afl")])
+collision_layer = 8
+collision_mask = 2
+storage = Array[ExtResource("15_f7cpc")]([ExtResource("18_5x84b"), ExtResource("19_qotnl"), ExtResource("20_mt5x5"), ExtResource("21_s68gf"), ExtResource("22_wss3m"), ExtResource("43_sword"), ExtResource("44_knife")])
 
 [node name="Table" parent="1_floor/Rooms/Spawn" unique_id=2121007791 instance=ExtResource("16_vcvnr")]
 y_sort_enabled = true
 position = Vector2(-109, 52)
+collision_mask = 2
 
 [node name="closet" parent="1_floor/Rooms/Spawn" unique_id=2031951736 instance=ExtResource("11_hhtvi")]
 material = ExtResource("15_0udst")
 position = Vector2(64, -66)
+collision_layer = 8
+collision_mask = 3
 
 [node name="Safe_Terminal" parent="1_floor/Rooms/Spawn" unique_id=651667437 instance=ExtResource("10_563p0")]
 material = ExtResource("15_0udst")
 position = Vector2(-103, -67)
+collision_layer = 8
+collision_mask = 3
 
 [node name="Door_Inter" parent="1_floor/Rooms/Spawn" unique_id=895654224 instance=ExtResource("23_dxl77")]
-z_index = 0
 y_sort_enabled = true
 position = Vector2(-33, -97)
-required_item_id = "ID_Key_Card_Grey"
+lock_level = 5
 
 [node name="Items" type="Node" parent="1_floor/Rooms/Spawn" unique_id=247696632]
 
 [node name="Drop_item" parent="1_floor/Rooms/Spawn/Items" unique_id=127834688 instance=ExtResource("28_s4qvm")]
 position = Vector2(1672, 1743)
+collision_layer = 4
 data = SubResource("Resource_0udst")
 
 [node name="Drop_item2" parent="1_floor/Rooms/Spawn/Items" unique_id=1590766144 instance=ExtResource("28_s4qvm")]
 position = Vector2(1661, 1662)
-data = ExtResource("21_dxl77")
+collision_layer = 4
+data = ExtResource("24_l1vrp")
 
-[node name="Drop_item3" parent="1_floor/Rooms/Spawn/Items" unique_id=69063437 instance=ExtResource("28_s4qvm")]
-position = Vector2(1773, 1362)
-data = SubResource("Resource_dxl77")
+[node name="Drop_item3" parent="1_floor/Rooms/Spawn/Items" unique_id=338669942 instance=ExtResource("28_s4qvm")]
+position = Vector2(1720, 1725)
+collision_layer = 4
+data = SubResource("Resource_sfn6e")
 
 [node name="Entity" type="Node2D" parent="1_floor" unique_id=303448597]
 z_index = 1
 y_sort_enabled = true
 
-[node name="Player" parent="1_floor/Entity" unique_id=903312043 instance=ExtResource("6_vcvnr")]
-visible = false
-position = Vector2(1857, 1710)
-
 [node name="NPC" parent="1_floor/Entity" unique_id=1741641539 instance=ExtResource("11_lto12")]
 position = Vector2(1832.0001, 1520.0001)
+collision_layer = 64
 npc_id = "npc_1"
 npc_name = "Капитан"
 quests = Array[ExtResource("24_61cnm")]([SubResource("Resource_mkacb")])
 
 [node name="NPC2" parent="1_floor/Entity" unique_id=1038824773 instance=ExtResource("11_lto12")]
 position = Vector2(1625, 1518)
+collision_layer = 64
 npc_id = "npc_2"
 npc_name = "Солдат"
 quests = Array[ExtResource("24_61cnm")]([SubResource("Resource_5x84b")])
+
+[node name="Player" parent="1_floor/Entity" unique_id=1256966732 instance=ExtResource("28_ylqv8")]
+position = Vector2(1850, 1702)
+
+[node name="Kriptozavr" parent="1_floor/Entity" unique_id=562560814 instance=ExtResource("42_kript")]
+position = Vector2(2016, 1690)
 
 [node name="AudioSFX" type="AudioStreamPlayer2D" parent="." unique_id=1155707719]
 max_distance = 4096.0
@@ -893,7 +855,6 @@ offset = Vector2(0.5, 0.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Kut-Scene" unique_id=1360327172]
 libraries/ = SubResource("AnimationLibrary_l1vrp")
-autoplay = &"Kut-Scene"
 
 [node name="CutScenePath" type="Path2D" parent="Kut-Scene" unique_id=1651344979]
 curve = SubResource("Curve2D_l1vrp")
@@ -905,38 +866,3 @@ rotates = false
 loop = false
 script = ExtResource("5_gu4hv")
 speed = 50.0
-actor_path = NodePath("../../../1_floor/Entity/Player")
-
-[node name="UI" type="CanvasLayer" parent="." unique_id=1732100513]
-
-[node name="Game Menu" parent="UI" unique_id=1209530635 instance=ExtResource("16_w2bar")]
-
-[node name="PlayerInventory" parent="UI" unique_id=1102897991 instance=ExtResource("22_20t25")]
-visible = false
-offset_left = 183.0
-offset_right = 215.0
-
-[node name="ExternalInventory" parent="UI" unique_id=135977470 instance=ExtResource("22_20t25")]
-visible = false
-offset_left = -257.0
-offset_right = -225.0
-
-[node name="DropZone" type="Button" parent="UI" unique_id=537607204]
-offset_left = 418.0
-offset_top = 94.0
-offset_right = 730.0
-offset_bottom = 150.0
-theme_override_font_sizes/font_size = 27
-theme_override_styles/normal = SubResource("StyleBoxFlat_vcvnr")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_f7cpc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_lto12")
-button_mask = 3
-text = "DROP"
-script = ExtResource("27_ql43b")
-dropped_item_scene = ExtResource("28_s4qvm")
-
-[node name="CutScene_Manager" type="Node" parent="." unique_id=1490577249]
-script = ExtResource("35_5x84b")
-
-[node name="InventoryManager" type="Node" parent="." unique_id=1776361470]
-script = ExtResource("27_s4qvm")

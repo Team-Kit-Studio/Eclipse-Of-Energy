@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="EntityData" format=3 uid="uid://bvj86mr0o881u"]
+
+[ext_resource type="AudioStream" uid="uid://clqg3mtwsw3vq" path="res://project/assets/sounds/MSE/zhelezo.mp3" id="1_77ebj"]
+[ext_resource type="Script" uid="uid://b5pxhghjkde8k" path="res://project/data/Resources/Entity/entity_data.gd" id="1_fpofi"]
+[ext_resource type="Script" uid="uid://c4hwcdjph1pew" path="res://project/data/Resources/Entity/Player/skin_data.gd" id="2_77ebj"]
+
+[sub_resource type="Resource" id="Resource_j3be5"]
+script = ExtResource("2_77ebj")
+skin_name = "suit"
+anim_idle_down = "State_Idle_Down"
+anim_idle_up = "State_Idle_Up"
+anim_idle_side = "State_Idle_FromSide"
+anim_run_down = "State_Run_Down"
+anim_run_up = "State_Run_Up"
+anim_run_side = "State_Run_FromSide"
+metadata/_custom_type_script = "uid://c4hwcdjph1pew"
+
+[sub_resource type="Resource" id="Resource_1gj27"]
+script = ExtResource("2_77ebj")
+skin_name = "no_suit"
+anim_idle_down = "State_Idle_Down_No_Costume"
+anim_idle_up = "State_Idle_Up"
+anim_idle_side = "State_Idle_FromSide_No_Costume"
+anim_run_down = "State_Run_Down_No_Costume"
+anim_run_up = "State_Run_Up"
+anim_run_side = "State_Run_FromSide"
+metadata/_custom_type_script = "uid://c4hwcdjph1pew"
+
+[resource]
+script = ExtResource("1_fpofi")
+entity_id = "Player"
+footstep_sound = ExtResource("1_77ebj")
+skins = Array[ExtResource("2_77ebj")]([SubResource("Resource_j3be5"), SubResource("Resource_1gj27")])
+metadata/_custom_type_script = "uid://b5pxhghjkde8k"

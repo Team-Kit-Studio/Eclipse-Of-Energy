@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://depouic6n6lvb"]
+
+[ext_resource type="Script" uid="uid://8kpgtawimjrq" path="res://project/scripts/core/cursor.gd" id="1_q7n75"]
+[ext_resource type="Texture2D" uid="uid://e0rlf1bp7mk0" path="res://project/assets/sprites/UI/other/mouse_cursor.png" id="2_620j6"]
+[ext_resource type="Texture2D" uid="uid://dg14e4h5u3fpp" path="res://project/assets/sprites/UI/other/mouse_weapon_sprite.png" id="3_weapon"]
+
+[node name="Cursor" type="CanvasLayer" unique_id=1949210431]
+script = ExtResource("1_q7n75")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=2130718979]
+visible = false
+texture = ExtResource("2_620j6")
+centered = false
+
+[node name="WeaponSprite" type="Sprite2D" parent="." unique_id=2130718980]
+texture = ExtResource("3_weapon")

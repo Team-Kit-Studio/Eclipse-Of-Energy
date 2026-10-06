@@ -1,4 +1,5 @@
 extends Control
+## Настройки аудио в главном меню (громкости master/sfx/music).
 
 @onready var music: HSlider = %Music
 @onready var sfx_value: HSlider = %Sound_FX

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://pxfp853pnmig"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_25rqp"]
+[ext_resource type="Texture2D" uid="uid://b2mdekt4yovii" path="res://project/assets/sprites/Loots/Consumable/bandage.png" id="2_w2kub"]
+
+[resource]
+script = ExtResource("1_25rqp")
+item_id = "item_bandage"
+name = "Бинт"
+texture = ExtResource("2_w2kub")
+description = "Медицинский бинт. Останавливает кровотечение и немного лечит."
+max_stack_size = 10
+item_type = 2
+weapon_type = 4
+heal_amount = 15
+use_time = 0.5
+heal_mode = 0
+is_usable = true
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

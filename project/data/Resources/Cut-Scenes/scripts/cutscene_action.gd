@@ -11,7 +11,8 @@ enum ActionType {
 	REMOVE_ACTOR,
 	ADD_ITEM,
 	ADD_QUEST,
-	COMPLETE_QUEST
+	COMPLETE_QUEST,
+	GIVE_WEAPON
 }
 
 @export var type: ActionType = ActionType.WAIT
@@ -66,3 +67,10 @@ enum ActionType {
 @export_category("Complete Quest")
 ## Идентификатор квеста (quest_id), который нужно завершить и выдать награду.
 @export var complete_quest_id: String = ""
+
+# ═══════════════ GIVE WEAPON ═══════════════
+@export_category("Give Weapon")
+## Путь к ресурсу WeaponStats (например "res://weapons/shotgun.tres")
+@export var weapon_resource_path: String = ""
+## В какой слот поместить (0=Primary, 1=Secondary, 2=Special)
+@export var weapon_slot: int = 1

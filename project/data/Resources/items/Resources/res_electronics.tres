@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dpkif6guqrla"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_lbbah"]
+[ext_resource type="Texture2D" uid="uid://birvucdimwl58" path="res://project/assets/sprites/Loots/Resource/res_electronics.png" id="2_0rj1s"]
+
+[resource]
+script = ExtResource("1_lbbah")
+item_id = "res_electronics"
+name = "Electronics"
+texture = ExtResource("2_0rj1s")
+description = "A circuit board with various electronic components. Useful for crafting advanced gear."
+max_stack_size = 64
+item_type = 1
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

@@ -1,17 +1,27 @@
 extends Control
+## Панель выбора ответа в диалоге. Выезжает справа снизу, кнопки строятся по словарю опций.
 
+## Сигнал: выбран вариант ответа (текст опции).
 signal choice_selected(option: String)
 
+## Панель и контейнер кнопок.
 @onready var panel: Panel = $CanvasLayer/Panel
 @onready var button_container: VBoxContainer = $CanvasLayer/Panel/ButtonContainer
 
+## Максимальная ширина панели.
 const MAX_WIDTH: int = 400
-const MAX_HEIGHT: int = 400      # ограничение максимальной высоты панели
+## Максимальная высота панели.
+const MAX_HEIGHT: int = 400
+## Внутренние отступы панели.
 const PADDING: int = 20
+## Отступ от правого края экрана.
 const SIDE_MARGIN: int = 20
+## Отступ от нижнего края экрана.
 const BOTTOM_MARGIN: int = 20
+## Сцена кнопки варианта.
 const BUTTON_SCENE = preload("res://project/scenes/ui/Systems/Dialog/Text_Box/ChoiceButton.tscn")
 
+## Строит кнопки по словарю опций и подгоняет размер панели; показывает её.
 func set_options(options: Dictionary) -> void:
 	for child in button_container.get_children():
 		child.queue_free()
@@ -62,6 +72,7 @@ func show_slide_in() -> void:
 	tween.tween_property(panel, "position:x", target_x, 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 	await tween.finished
 
+## Анимирует уход панели за правый край и прячет её.
 func hide_slide_out() -> void:
 	var viewport_size = get_viewport().get_visible_rect().size
 	var tween = create_tween()
@@ -69,6 +80,7 @@ func hide_slide_out() -> void:
 	await tween.finished
 	hide()
 
+## Обработчик нажатия кнопки: шлёт сигнал выбора и прячет панель.
 func _on_button_pressed(option: String) -> void:
 	choice_selected.emit(option)
 	hide_slide_out()

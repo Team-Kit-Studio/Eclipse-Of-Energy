@@ -4,7 +4,7 @@ extends Node2D
 @onready var audio_sfx: AudioStreamPlayer2D = $AudioSFX
 @onready var player: CharacterBody2D = $"1_floor/Entity/Player"
 @onready var animation_player: AnimationPlayer = $"Kut-Scene/AnimationPlayer"
-@onready var cutscene_manager: Node = $CutScene_Manager
+@onready var cutscene_manager: Node = CutsceneManager
 
 var cut_scene: bool = false
 
@@ -13,10 +13,10 @@ func _ready() -> void:
 	SavesManager.data_update.connect(self_objects_saves)
 	Play_Music("res://project/assets/sounds/music/Trip Land.mp3")
 	#animation_player.play("Kut-Scene")
-	# Пример запуска катсцены (можно вызвать из любого места)
-	# cutscene_manager.play_cutscene(preload("res://cutscenes/intro.tres"))
+	#start_cutscene()
 	
 func start_cutscene() -> void:
+	# Пример запуска катсцены (можно вызвать из любого места)
 	cutscene_manager.play_cutscene(preload("res://project/data/Resources/Cut-Scenes/Cutscene1.tres"))
 	
 
@@ -30,7 +30,7 @@ func self_objects_saves() -> void:
 	
 	# Сохраняем данные игрока (вызываем его метод data())
 	if player:
-		temp_data["player"] = player.data()
+		temp_data["player"] = player.get_save_data()
 	
 	temp_metadata["name"] = self.name
 	temp_metadata["last_modified_time"] = {
@@ -83,9 +83,9 @@ func delete_node() -> void:
 #		$Items.remove_child(items)
 #		items.queue_free()
 
-	var player: CharacterBody2D = $Player
-	player.remove_child(player)
-	player.queue_free()
+	var player_node: CharacterBody2D = $Player
+	player_node.remove_child(player_node)
+	player_node.queue_free()
 
 #загружает и восстанавливает состояние игрока из сохраненных данных
 func load_player(player_data: Dictionary) -> void:

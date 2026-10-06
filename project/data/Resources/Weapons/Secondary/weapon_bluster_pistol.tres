@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://xpby3b28xcv4"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_h14np"]
+[ext_resource type="Texture2D" uid="uid://me1ml6qwtdu4" path="res://project/assets/sprites/Loots/Weapons/Secondary/ERA Weapon Secondary (2).png" id="2_b7p63"]
+[ext_resource type="Resource" uid="uid://bts128eu2041g" path="res://project/data/Resources/Weapons/bullet/bullet_pistol.tres" id="3_b7p6x"]
+
+[resource]
+script = ExtResource("1_h14np")
+item_id = "weapon_blaster_pistol"
+name = "Пистолет \"Ворон\""
+texture = ExtResource("2_b7p63")
+description = "Компактное оружие последнего шанса. Не требует патронов — работает от встроенного энергоблока. Высокая скорострельность и шанс оглушения делают его полезным в критических ситуациях. Компенсируется низким уроном. Когда основное оружие дало осечку, \"Ворон\" никогда не подведёт."
+width = 2
+item_type = 3
+weapon_type = 2
+bullet = ExtResource("3_b7p6x")
+sprite_offset = Vector2(3.745, -15.255)
+muzzle_offset = Vector2(53.19, -2.635)
+sprite_scale = Vector2(1.5, 1.5)
+ammo_max = 12
+fire_rate = 0.5
+spread = 7.0
+infinite_ammo = true
+is_equippable = true
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ds1gf55232sih"]
+
+[ext_resource type="Script" uid="uid://btb5txr1y6ko0" path="res://project/scripts/ui/inventory/Components/contex_menu.gd" id="1_nmkis"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x84b"]
+bg_color = Color(0.09980235, 0.09980235, 0.09980235, 0.6)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.47925282, 0.47925287, 0.47925264, 1)
+border_blend = true
+
+[node name="ItemContextMenu" type="CanvasLayer" unique_id=1437829185]
+script = ExtResource("1_nmkis")
+
+[node name="MenuPanel" type="Panel" parent="." unique_id=1431643432]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 200.0
+offset_bottom = 155.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5x84b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel" unique_id=1871229041]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -68.0
+offset_right = 82.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Button_Use" type="Button" parent="MenuPanel/VBoxContainer" unique_id=59656003]
+layout_mode = 2
+text = "Использовать"
+
+[node name="Button_Equip" type="Button" parent="MenuPanel/VBoxContainer" unique_id=1942026493]
+layout_mode = 2
+text = "Экипировать"
+
+[node name="Button_Reload" type="Button" parent="MenuPanel/VBoxContainer" unique_id=894605910]
+layout_mode = 2
+text = "Перезарядить"
+
+[node name="Button_Description" type="Button" parent="MenuPanel/VBoxContainer" unique_id=1443237864]
+layout_mode = 2
+text = "Описание"
+
+[node name="Button_Drop" type="Button" parent="MenuPanel/VBoxContainer" unique_id=558267183]
+layout_mode = 2
+text = "Выбросить"

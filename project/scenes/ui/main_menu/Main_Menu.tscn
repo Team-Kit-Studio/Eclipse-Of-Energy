@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://byl26cbrqt0b4" path="res://project/scripts/ui/main_menu/Main_Menu.gd" id="1_h15ec"]
 [ext_resource type="Texture2D" uid="uid://cbcyxtegi25uw" path="res://project/assets/sprites/tiles/timemap_space/tilemap space.png" id="2_4ydw1"]
-[ext_resource type="Texture2D" uid="uid://bf0qdsf4dh5ip" path="res://project/assets/sprites/ui_main/button_main_menu/Start.png" id="4_a214n"]
-[ext_resource type="Texture2D" uid="uid://nxqkoufxgsi5" path="res://project/assets/sprites/ui_main/button_main_menu/Start_Pressed.png" id="5_34mu2"]
+[ext_resource type="Texture2D" uid="uid://bf0qdsf4dh5ip" path="res://project/assets/sprites/UI/ui_main/button_main_menu/Start.png" id="4_a214n"]
+[ext_resource type="Texture2D" uid="uid://nxqkoufxgsi5" path="res://project/assets/sprites/UI/ui_main/button_main_menu/Start_Pressed.png" id="5_34mu2"]
 [ext_resource type="Texture2D" uid="uid://buy2qs4x7oljt" path="res://project/assets/sprites/UI/other/LogoName.png" id="5_b1wmw"]
 [ext_resource type="Texture2D" uid="uid://x3okcalbyx25" path="res://project/assets/sprites/tiles/timemap_space/Planet1.png" id="5_gb1rm"]
-[ext_resource type="Texture2D" uid="uid://cru4ghk5c5q62" path="res://project/assets/sprites/ui_main/button_main_menu/Start_Hover.png" id="6_etry0"]
-[ext_resource type="Texture2D" uid="uid://e0xbbc0gkb3s" path="res://project/assets/sprites/ui_main/button_main_menu/options.png" id="7_bmo4t"]
-[ext_resource type="Texture2D" uid="uid://k3s6bg13op6y" path="res://project/assets/sprites/ui_main/button_main_menu/options_Pressed.png" id="8_rl2wa"]
-[ext_resource type="Texture2D" uid="uid://nmbhbi0h4gs4" path="res://project/assets/sprites/ui_main/button_main_menu/Options_Hover.png" id="9_mi8dn"]
-[ext_resource type="Texture2D" uid="uid://d261w8sa1m816" path="res://project/assets/sprites/ui_main/button_main_menu/Exit.png" id="10_0bqx8"]
-[ext_resource type="Texture2D" uid="uid://b7lkmdl48qiei" path="res://project/assets/sprites/ui_main/button_main_menu/Exit_hover.tga" id="11_tiuhb"]
+[ext_resource type="Texture2D" uid="uid://cru4ghk5c5q62" path="res://project/assets/sprites/UI/ui_main/button_main_menu/Start_Hover.png" id="6_etry0"]
+[ext_resource type="Texture2D" uid="uid://e0xbbc0gkb3s" path="res://project/assets/sprites/UI/ui_main/button_main_menu/options.png" id="7_bmo4t"]
+[ext_resource type="Texture2D" uid="uid://k3s6bg13op6y" path="res://project/assets/sprites/UI/ui_main/button_main_menu/options_Pressed.png" id="8_rl2wa"]
+[ext_resource type="Texture2D" uid="uid://nmbhbi0h4gs4" path="res://project/assets/sprites/UI/ui_main/button_main_menu/Options_Hover.png" id="9_mi8dn"]
+[ext_resource type="Texture2D" uid="uid://d261w8sa1m816" path="res://project/assets/sprites/UI/ui_main/button_main_menu/Exit.png" id="10_0bqx8"]
+[ext_resource type="Texture2D" uid="uid://b7lkmdl48qiei" path="res://project/assets/sprites/UI/ui_main/button_main_menu/Exit_hover.tga" id="11_tiuhb"]
 [ext_resource type="Theme" uid="uid://bad1ur757eh46" path="res://project/assets/theme/GUI.tres" id="12_bi6or"]
 [ext_resource type="Theme" uid="uid://nc5ecqmt7j3g" path="res://project/assets/theme/new_theme.tres" id="12_wuyts"]
 [ext_resource type="Script" uid="uid://b38iswqaka4v2" path="res://project/scripts/ui/main_menu/settings/VideoSettingsMM.gd" id="13_32gmx"]
@@ -613,7 +613,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_frc2k")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 3.0
 }]
@@ -711,7 +711,6 @@ theme = ExtResource("12_bi6or")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main_Menu" unique_id=1229992497]
 clip_contents = true
-layout_direction = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -728,6 +727,7 @@ scale = Vector2(7.25624, 5.65482)
 pivot_offset = Vector2(25, 10)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+layout_direction = 2
 alignment = 1
 
 [node name="Start" type="TextureButton" parent="Main_Menu/VBoxContainer" unique_id=1789736651]
@@ -823,7 +823,6 @@ theme = ExtResource("12_wuyts")
 script = ExtResource("13_32gmx")
 
 [node name="PanelContainer" type="PanelContainer" parent="Video" unique_id=1075904815]
-layout_direction = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -836,6 +835,7 @@ offset_right = -70.0
 offset_bottom = 162.0
 grow_horizontal = 2
 grow_vertical = 2
+layout_direction = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Video/PanelContainer" unique_id=1541891637]
 layout_mode = 2
@@ -946,21 +946,21 @@ size_flags_vertical = 8
 layout_mode = 2
 
 [node name="Music" type="Label" parent="Audio/PanelContainer/VBoxContainer/HBoxContainer/Labels" unique_id=1495341632]
-layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 7
 size_flags_stretch_ratio = 1.71
+layout_direction = 1
 text = "Музыка"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sound FX" type="Label" parent="Audio/PanelContainer/VBoxContainer/HBoxContainer/Labels" unique_id=1119557554]
-layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 7
 size_flags_stretch_ratio = 1.71
+layout_direction = 1
 text = "Звуковые Эффекты"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -971,19 +971,19 @@ size_flags_horizontal = 3
 
 [node name="Music" type="HSlider" parent="Audio/PanelContainer/VBoxContainer/HBoxContainer/Slider" unique_id=513136482]
 unique_name_in_owner = true
-layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 7
+layout_direction = 1
 max_value = 1.0
 step = 0.01
 
 [node name="Sound_FX" type="HSlider" parent="Audio/PanelContainer/VBoxContainer/HBoxContainer/Slider" unique_id=990046010]
 unique_name_in_owner = true
-layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 7
+layout_direction = 1
 max_value = 1.0
 step = 0.01
 

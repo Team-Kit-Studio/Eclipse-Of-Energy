@@ -1,4 +1,5 @@
 extends Panel
+## Плитка одного сохранения в списке: имя, дата, превью и действия.
 
 @onready var parent: Node = get_parent().get_owner()
 

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c3b8b066umwan"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_s0w4l"]
+[ext_resource type="Texture2D" uid="uid://b3qqwlpk5n8uo" path="res://project/assets/sprites/Loots/Consumable/MedKit_1.png" id="2_qv2yw"]
+
+[resource]
+script = ExtResource("1_s0w4l")
+item_id = "item_medkit"
+name = "Аптечка"
+texture = ExtResource("2_qv2yw")
+description = "Стандартная военная аптечка. Восстанавливает значительное количество здоровья."
+max_stack_size = 5
+item_type = 2
+weapon_type = 4
+heal_amount = 50
+use_time = 1.5
+heal_mode = 1
+heal_duration = 4.0
+is_usable = true
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

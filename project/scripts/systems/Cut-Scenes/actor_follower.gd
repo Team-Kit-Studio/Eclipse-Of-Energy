@@ -1,15 +1,24 @@
 extends PathFollow2D
 class_name ActorFollower
+## Ведёт актёра (CharacterBody2D) вдоль Path2D. Используется катсценами:
+## синхронизирует скорость, направление и анимацию ходьбы.
 
+## Сигнал: актёр дошёл до конца пути.
 signal finished
 
+## Скорость движения по пути (px/сек).
 @export var speed: float = 100.0
+## Путь к актёру, если он не задан напрямую.
 @export var actor_path: NodePath
+## Режим катсцены (актёр управляется катсценой).
 @export var cutscene_mode: bool = true
 
+## Управляемый актёр.
 var actor: CharacterBody2D = null
+## Идёт ли движение.
 var is_moving: bool = false
 
+## Запускает движение актёра по кривой.
 func start() -> void:
 	if is_moving:
 		return
@@ -25,6 +34,7 @@ func start() -> void:
 	is_moving = true
 	set_process(true)
 
+## Каждый кадр двигает актёра к следующей точке кривой и обновляет анимацию.
 func _process(delta: float) -> void:
 	if not is_moving or not actor:
 		return
@@ -59,6 +69,7 @@ func _process(delta: float) -> void:
 	if "footstep_pitch" in actor:
 		actor.footstep_pitch = clamp(speed / 100.0, 0.7, 2.0)
 
+## Завершает движение: гасит скорость и восстанавливает анимацию; шлёт сигнал finished.
 func _finish() -> void:
 	is_moving = false
 	set_process(false)

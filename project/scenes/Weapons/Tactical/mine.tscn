@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://project/scripts/Weapons/Tactical/mine.gd" id="1_mi"]
+[ext_resource type="Texture2D" path="res://project/assets/sprites/Loots/Tactical/mine.png" id="2_tex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 10.0
+
+[node name="Mine" type="Area2D"]
+collision_layer = 0
+collision_mask = 34
+monitoring = true
+script = ExtResource("1_mi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1")
+
+[node name="Countdown" type="Label" parent="."]
+z_index = 1
+offset_left = -12.0
+offset_top = -34.0
+offset_right = 12.0
+offset_bottom = -14.0
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

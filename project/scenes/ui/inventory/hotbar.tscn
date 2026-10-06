@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://ofbavoq4v3c0"]
+
+[ext_resource type="Script" uid="uid://ciypy08qmv0wv" path="res://project/scripts/ui/inventory/hotbar.gd" id="1_hbar"]
+[ext_resource type="PackedScene" uid="uid://btnqd3waxpl6l" path="res://project/scenes/ui/inventory/components/inventory_slot.tscn" id="2_8w3yr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tkntx"]
+
+[sub_resource type="Theme" id="Theme_hrsnx"]
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_tkntx")
+
+[node name="Hotbar" type="PanelContainer" unique_id=2042957619]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -84.0
+offset_right = 210.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = SubResource("Theme_hrsnx")
+script = ExtResource("1_hbar")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=91175238]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SlotsContainer" type="HBoxContainer" parent="MarginContainer" unique_id=480442609]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Slot_Primary" parent="MarginContainer/SlotsContainer" unique_id=863263226 instance=ExtResource("2_8w3yr")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+
+[node name="ColorRect" parent="MarginContainer/SlotsContainer/Slot_Primary" index="0" unique_id=1055247200]
+custom_minimum_size = Vector2(112, 56)
+
+[node name="Slot_Secondary" parent="MarginContainer/SlotsContainer" unique_id=7597625 instance=ExtResource("2_8w3yr")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+
+[node name="ColorRect" parent="MarginContainer/SlotsContainer/Slot_Secondary" index="0" unique_id=1055247200]
+custom_minimum_size = Vector2(112, 56)
+
+[node name="Slot_Tactical" parent="MarginContainer/SlotsContainer" unique_id=1141696695 instance=ExtResource("2_8w3yr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Slot_Medical" parent="MarginContainer/SlotsContainer" unique_id=1679933108 instance=ExtResource("2_8w3yr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Slot_Free1" parent="MarginContainer/SlotsContainer" unique_id=2064440430 instance=ExtResource("2_8w3yr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Slot_Free2" parent="MarginContainer/SlotsContainer" unique_id=628591151 instance=ExtResource("2_8w3yr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[editable path="MarginContainer/SlotsContainer/Slot_Primary"]
+[editable path="MarginContainer/SlotsContainer/Slot_Secondary"]

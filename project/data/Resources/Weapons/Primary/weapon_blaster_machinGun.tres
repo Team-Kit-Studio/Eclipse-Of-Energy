@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bwqevymky2tm6"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_h844f"]
+[ext_resource type="Resource" uid="uid://caxvpjmlbeyjt" path="res://project/data/Resources/Weapons/bullet/bullet_machinegun.tres" id="1_hdnp8"]
+[ext_resource type="Texture2D" uid="uid://biolc2geu0hqu" path="res://project/assets/sprites/Loots/Weapons/Primary/Weapon_Blaster.png" id="2_hdnp8"]
+
+[resource]
+script = ExtResource("1_h844f")
+item_id = "weapon_plusma_rifle"
+name = "Плазменная винтовка \"Фаланга\""
+texture = ExtResource("2_hdnp8")
+description = "Стандартное оружие отряда специального назначения. Компактная плазменная винтовка с высоким темпом стрельбы и отличной точностью. Энергетические картриджи обеспечивают стабильный урон на средних и дальних дистанциях. Идеальный баланс между скорострельностью и уроном делает её универсальным выбором для большинства боевых ситуаций."
+width = 2
+item_type = 3
+weapon_type = 1
+bullet = ExtResource("1_hdnp8")
+sprite_offset = Vector2(-12.215, -15.205)
+muzzle_offset = Vector2(58.66, -0.325)
+sprite_scale = Vector2(1.5, 1.5)
+ammo_type = "ammo_plasma_cell"
+ammo_current = 15
+ammo_max = 15
+damage = 15
+spread = 7.0
+infinite_ammo = true
+is_equippable = true
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

@@ -143,6 +143,7 @@ bus = &"music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=176642573]
 process_mode = 3
+visible = false
 
 [node name="Main_Menu" type="Control" parent="CanvasLayer" unique_id=640752402]
 visible = false
@@ -166,10 +167,10 @@ layout_mode = 2
 size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main_Menu/PanelContainer/HBoxContainer" unique_id=2014876524]
-layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+layout_direction = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/Main_Menu/PanelContainer/HBoxContainer/VBoxContainer" unique_id=53002644]

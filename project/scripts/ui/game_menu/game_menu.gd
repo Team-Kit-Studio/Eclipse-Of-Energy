@@ -1,4 +1,5 @@
 extends Control
+## Игровое меню (пауза): панели/вкладки и возврат в игру/главное меню.
 @onready var canvas: CanvasLayer = $CanvasLayer
 @onready var mainMenu: Control = $CanvasLayer/Main_Menu
 @onready var settings: TabContainer = $CanvasLayer/GUI/Settings

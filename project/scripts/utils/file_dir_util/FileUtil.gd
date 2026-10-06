@@ -1,5 +1,7 @@
 class_name FileUtil
+## Утилита работы с файлами: пути, сохранение/чтение JSON (в т.ч. с шифрованием), удаление.
 
+## Режим работы с файлом при сохранении/чтении (шифрование опционально).
 enum encrypt_mode {
 	ENCRYPT,
 	NO_ENCRYPT,
@@ -7,13 +9,11 @@ enum encrypt_mode {
 	NO_DECRYPTION
 }
 
-# - get_file_path(folder_path: String, file_name: String, extension: String) -> String
-#   - Конструирует и возвращает полный путь к файлу.
+## Строит полный путь к файлу (обёртка над PathManager).
 static func get_file_path(folder_path: String, file_name: String, extension: String) -> String:
 	return PathManager.build_path(folder_path, file_name, extension)
 
-# - save_to_file_as_format_json(data: Dictionary, folder_path: String, file_name: String, extension: String) -> void
-#   - Сохраняет словарь в виде JSON файла по указанному пути. Так же умеет шифровать данные
+## Сохраняет словарь как JSON-файл (опционально с шифрованием паролем).
 static func save_to_file_as_format_json(data: Dictionary, folder_path: String, file_name: String, extension: String, save_mode: encrypt_mode = encrypt_mode.NO_DECRYPTION, encrypt_pass: StringName = "") -> void:
 	var path: String = get_file_path(folder_path, file_name, extension)
 	var json_string: String = JSON.stringify(data, '\t')
@@ -33,8 +33,7 @@ static func save_to_file_as_format_json(data: Dictionary, folder_path: String, f
 	file.close()
 
 
-# - file_read(folder_path: String, file_name: String, extension: String) -> Dictionary
-#   - Читает и возвращает содержимое JSON файла в виде словаря. Может дишифровать файлы
+## Читает JSON-файл в словарь (опционально с расшифровкой паролем).
 static func file_read(file_path: String, decryption_mode: encrypt_mode = encrypt_mode.NO_DECRYPTION, encrypt_pass: StringName = "") -> Dictionary:
 
 	if not FileAccess.file_exists(file_path): return {}
@@ -52,8 +51,7 @@ static func file_read(file_path: String, decryption_mode: encrypt_mode = encrypt
 
 	return {}
 
-# - delete_file(folder_path: String, file_name: String, extension: String) -> void
-#   - Удаляет указанный файл, если он существует.
+## Удаляет указанный файл, если он существует.
 static func delete_file(file_path: String) -> void:
 	if FileAccess.file_exists(file_path): 
 		DirAccess.remove_absolute(file_path)

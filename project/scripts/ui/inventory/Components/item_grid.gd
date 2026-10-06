@@ -1,4 +1,6 @@
 extends GridContainer
+## Сетка инвентаря: раскладка предметов по ячейкам, перетаскивание (drag&drop),
+## подсветка допустимых позиций, экспорт/импорт раскладки для контейнеров.
 
 const SLOT_SIZE: int = 64
 
@@ -63,10 +65,93 @@ func _process(_delta: float) -> void:
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
+		var shift_pressed = Input.is_key_pressed(KEY_SHIFT)
+		
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			handle_left_click()
+			if shift_pressed:
+				handle_shift_click()
+			else:
+				handle_left_click()
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			handle_right_click()
+
+## Shift+ЛКМ: если открыт второй инвентарь (например сундук) — быстро переносим
+## предмет туда (сундук <-> игрок). Если второго инвентаря нет — экипируем в
+## хотбар, но ТОЛЬКО из инвентаря самого игрока (из сундука экипировка запрещена).
+func handle_shift_click() -> void:
+	var mouse_grid_pos = screen_to_grid(get_global_mouse_position())
+	var item = get_item_at(mouse_grid_pos)
+	if item == null:
+		return
+	
+	# 1) Быстрый перенос в другой открытый инвентарь (сундук <-> игрок)
+	if transfer_item_to_other(item):
+		return
+	
+	# 2) Иначе — экипировка в хотбар, но только из инвентаря игрока
+	if not _is_player_inventory():
+		return
+	
+	var hotbar = get_tree().root.find_child("Hotbar", true, false)
+	if not hotbar or not hotbar.has_method("try_equip_item"):
+		return
+	
+	if hotbar.try_equip_item(item):
+		print("Предмет экипирован в хотбар: ", item.name)
+	else:
+		print("Не удалось экипировать предмет в хотбар")
+
+
+## true, если эта сетка принадлежит инвентарю самого игрока.
+func _is_player_inventory() -> bool:
+	var player: Node = Global.player
+	if player == null:
+		player = get_tree().root.find_child("Player", true, false)
+	if player == null:
+		return false
+	return _get_inventory_root() == player.get("player_inventory")
+
+
+## Возвращает второй открытый инвентарь (сундук, если мы в инвентаре игрока,
+## и наоборот), либо null, если второго инвентаря нет.
+func _find_other_inventory() -> Node:
+	var my_root: Node = _get_inventory_root()
+	var player: Node = Global.player
+	if player == null:
+		player = get_tree().root.find_child("Player", true, false)
+	if player == null:
+		return null
+	var player_inv: Node = player.get("player_inventory")
+	var external_inv: Node = player.get("external_inventory")
+	if my_root == player_inv and external_inv != null and external_inv.visible:
+		return external_inv
+	if my_root == external_inv and player_inv != null and player_inv.visible:
+		return player_inv
+	return null
+
+
+## Переносит предмет в другой открытый инвентарь. Возвращает true при успехе.
+func transfer_item_to_other(item: ItemData) -> bool:
+	var other_inv: Node = _find_other_inventory()
+	if other_inv == null:
+		return false
+	var other_grid: Node = other_inv.get("item_grid")
+	if other_grid == null or other_grid == self:
+		return false
+	var visual: Node2D = _get_visual(item)
+	var origin: Vector2i = get_item_origin(item)
+	# Убираем из текущей сетки
+	pick_up_item_from_grid(item)
+	# Пытаемся положить в другую сетку
+	if other_grid.try_add_item(item, visual):
+		return true
+	# Не хватило места — откатываем обратно
+	if origin != Vector2i(-1, -1):
+		try_add_item_at(item, visual, origin)
+	else:
+		try_add_item(item, visual)
+	return false
+
 
 # =========================================================
 # Helpers: найти корень Inventory и корректно репарентить предметы
@@ -300,61 +385,56 @@ func handle_left_click() -> void:
 
 func handle_right_click() -> void:
 	var held_visual = cached_held_visual
-	if not held_visual:
-		return
 	
-	var held_data: ItemData = held_visual.data
-	if not held_data.stackable:
-		return
-	
-	var source_info = inventory_manager.get_source()
-	var mouse_grid_pos = screen_to_grid(get_global_mouse_position())
-	var item_under_mouse = get_item_at(mouse_grid_pos)
-	
-	# 1) Положить 1 шт в пустое
-	if item_under_mouse == null:
-		var item_px_size = Vector2(held_data.get_size()) * SLOT_SIZE
-		var place_pos = get_grid_pos_centered(item_px_size)
+	# --- СЦЕНАРИЙ 1: Предмет в руке (выкладываем поштучно) ---
+	if held_visual:
+		var held_data: ItemData = held_visual.data
+		if not held_data.stackable: return
 		
-		if can_place_item(held_data, place_pos):
-			var single_data = held_data.duplicate()
-			single_data.amount = 1
+		var source_info = inventory_manager.get_source()
+		var mouse_grid_pos = screen_to_grid(get_global_mouse_position())
+		var item_under_mouse = get_item_at(mouse_grid_pos)
+		
+		if item_under_mouse == null:
+			var item_px_size = Vector2(held_data.get_size()) * SLOT_SIZE
+			var place_pos = get_grid_pos_centered(item_px_size)
+			if can_place_item(held_data, place_pos):
+				var single_data = held_data.duplicate()
+				single_data.amount = 1
+				var new_visual = inventory_item_scene.instantiate()
+				new_visual.data = single_data
+				place_item(single_data, place_pos, new_visual)
+				held_data.amount -= 1
+				if held_data.amount <= 0:
+					if source_info.grid: source_info.grid.pick_up_item_from_grid(held_data)
+					held_visual.queue_free()
+					inventory_manager.clear()
+				else: 
+					held_visual.update_visual()
+				clear_highlights()
+			return
 			
-			var new_visual = inventory_item_scene.instantiate()
-			new_visual.data = single_data
-			
-			place_item(single_data, place_pos, new_visual)
-			
+		if item_under_mouse.name == held_data.name and item_under_mouse.amount < item_under_mouse.max_stack_size:
+			item_under_mouse.amount += 1
 			held_data.amount -= 1
-			
+			update_existing_visual(item_under_mouse)
 			if held_data.amount <= 0:
-				# Удаляем из источника
-				if source_info.grid:
-					source_info.grid.pick_up_item_from_grid(held_data)
+				if source_info.grid: source_info.grid.pick_up_item_from_grid(held_data)
 				held_visual.queue_free()
 				inventory_manager.clear()
-			else:
+			else: 
 				held_visual.update_visual()
-			
 			clear_highlights()
-		return
-	
-	# 2) Добавить 1 шт в стак
-	if item_under_mouse.name == held_data.name and item_under_mouse.amount < item_under_mouse.max_stack_size:
-		item_under_mouse.amount += 1
-		held_data.amount -= 1
-		update_existing_visual(item_under_mouse)
+
+	# --- СЦЕНАРИЙ 2: Рука пуста (открываем контекстное меню) ---
+	else:
+		var mouse_grid_pos = screen_to_grid(get_global_mouse_position())
+		var item = get_item_at(mouse_grid_pos)
+		if item == null: return
 		
-		if held_data.amount <= 0:
-			# Удаляем из источника
-			if source_info.grid:
-				source_info.grid.pick_up_item_from_grid(held_data)
-			held_visual.queue_free()
-			inventory_manager.clear()
-		else:
-			held_visual.update_visual()
-		
-		clear_highlights()
+		var inv_root = _get_inventory_root()
+		if inv_root and inv_root.has_method("_on_item_right_clicked"):
+			inv_root._on_item_right_clicked(item, get_global_mouse_position())
 
 # =========================================================
 # API (для сундуков/очистки)
@@ -467,7 +547,7 @@ func refresh_slot_amounts() -> void:
 			if last_idx != -1:
 				var slot_node = get_child(last_idx)
 				if slot_node.has_method("set_amount"):
-					slot_node.set_amount(item.amount)
+					slot_node.set_amount(str(item.amount))
 
 func can_place_item(item: ItemData, origin: Vector2i) -> bool:
 	var s = item.get_size()

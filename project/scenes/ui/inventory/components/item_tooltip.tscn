@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://2q0cqmrac688"]
+
+[ext_resource type="Script" uid="uid://b2kuooxhmc6r5" path="res://project/scripts/ui/inventory/Components/item_tooltip.gd" id="1_nayor"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nayor"]
+bg_color = Color(0.31541458, 0.3154146, 0.3154146, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6949992, 0.69499934, 0.69499904, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_ske2t"]
+Panel/styles/panel = SubResource("StyleBoxFlat_nayor")
+
+[node name="ItemTooltip" type="CanvasLayer" unique_id=2053820487]
+layer = 10
+script = ExtResource("1_nayor")
+
+[node name="TooltipPanel" type="Panel" parent="." unique_id=2125094330]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 200.0
+offset_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_ske2t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TooltipPanel" unique_id=1409361247]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = -8.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="TooltipPanel/VBoxContainer" unique_id=693782312]
+layout_mode = 2
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 18
+text = "GUN"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="TooltipPanel/VBoxContainer" unique_id=1843919400]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="TooltipPanel/VBoxContainer" unique_id=1141193221]
+custom_minimum_size = Vector2(0, 91.27)
+layout_mode = 2
+autowrap_mode = 3

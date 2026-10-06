@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://biea0trx7i1mg"]
+
+[ext_resource type="PackedScene" uid="uid://rc1cyn3sceyf" path="res://project/scenes/characters/Entity/NPC.tscn" id="1_npc"]
+[ext_resource type="SpriteFrames" uid="uid://dai673mxvstbb" path="res://project/assets/sprites/characters/Kriptozavr/kriptozavr_frames.tres" id="2_frames"]
+[ext_resource type="Script" uid="uid://esqge2mea8uw" path="res://project/scenes/characters/Entity/skins/npc_skin.gd" id="3_skinscript"]
+
+[sub_resource type="Resource" id="Resource_kripskin"]
+script = ExtResource("3_skinscript")
+sprite_frames = ExtResource("2_frames")
+flip_facing = true
+idle = &"idle_side"
+run = &"walk_side"
+attack = &"attack_side"
+idle_up = &"idle_up"
+idle_down = &"idle_down"
+idle_left = &"idle_side"
+idle_right = &"idle_side"
+run_up = &"walk_up"
+run_down = &"walk_down"
+run_left = &"walk_side"
+run_right = &"walk_side"
+attack_up = &"atack_side"
+attack_down = &"atack_side"
+attack_left = &"atack_side"
+attack_right = &"atack_side"
+
+[node name="Kriptozavr" unique_id=608586357 instance=ExtResource("1_npc")]
+npc_id = "kriptozavr"
+npc_name = "Криптозавр"
+faction = 1
+max_hp = 80
+hide_shadow = true
+skins = Array[ExtResource("3_skinscript")]([SubResource("Resource_kripskin")])
+default_skin = "default"

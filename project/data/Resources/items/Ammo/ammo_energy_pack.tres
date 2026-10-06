@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cbi3fc5euss44"]
+
+[ext_resource type="Script" uid="uid://ipa0bxfn4i43" path="res://project/data/item/item_data.gd" id="1_aip38"]
+[ext_resource type="Texture2D" uid="uid://ckkh1kog247a8" path="res://project/assets/sprites/Loots/Weapons/Ammo/Energy_Ammo.png" id="2_ugely"]
+
+[resource]
+script = ExtResource("1_aip38")
+item_id = "ammo_energy_pack"
+name = "Энергопакет"
+texture = ExtResource("2_ugely")
+description = "Миниатюрный источник энергии для бластерных пистолетов. Быстро перезаряжается."
+max_stack_size = 50
+item_type = 1
+metadata/_custom_type_script = "uid://ipa0bxfn4i43"

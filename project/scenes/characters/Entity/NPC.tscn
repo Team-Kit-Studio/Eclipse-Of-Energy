@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://ccl3wemqkkmiv" path="res://project/scripts/systems/Quest/Components/Rewards.gd" id="5_stcet"]
 [ext_resource type="PackedScene" uid="uid://wvs1ukjjbjlj" path="res://project/scenes/ui/Systems/Dialog/dialog_manager.tscn" id="6_u6edg"]
 [ext_resource type="Texture2D" uid="uid://cc30f5f1mltn4" path="res://project/assets/sprites/characters/player/movment_sprite/SpriteList_Player_Run.png" id="9_5tq58"]
+[ext_resource type="PackedScene" uid="uid://8j0t3isykc67" path="res://project/scenes/ui/HealthBar/health_component.tscn" id="10_health"]
 
 [sub_resource type="Resource" id="Resource_aemsr"]
 script = ExtResource("2_4pqtl")
@@ -1367,6 +1368,8 @@ collision_mask = 9
 script = ExtResource("1_xbpnl")
 dialog_resource = SubResource("Resource_aemsr")
 quests = Array[ExtResource("3_aemsr")]([SubResource("Resource_n64ha")])
+
+[node name="HealthComponent" parent="." instance=ExtResource("10_health")]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=988000368]
 collision_layer = 12
